@@ -1,7 +1,7 @@
 /*=============== SWIPER JS ===============*/
 let swiperCards = new Swiper(".card__content", {
   loop: true,
-  spaceBetween: 32,
+  spaceBetween: 30,
   grabCursor: true,
 
   pagination: {
@@ -17,10 +17,24 @@ let swiperCards = new Swiper(".card__content", {
 
   breakpoints:{
     600: {
-      slidesPerView: 2,
-    },
-    968: {
       slidesPerView: 3,
     },
+    968: {
+      slidesPerView: 4,
+    },
   },
+});
+
+const cards = document.querySelectorAll('.card__article');
+
+cards.forEach(card => {
+  card.addEventListener('mouseenter', () => {
+    const img = card.querySelector('.card__img');
+    img.style.transform = 'scale(1.2)';
+  });
+  
+  card.addEventListener('mouseleave', () => {
+    const img = card.querySelector('.card__img');
+    img.style.transform = 'scale(1)';
+  });
 });
